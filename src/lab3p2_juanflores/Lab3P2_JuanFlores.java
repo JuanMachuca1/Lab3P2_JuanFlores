@@ -282,7 +282,13 @@ public class Lab3P2_JuanFlores {
                     break;
                     
                 case 4:
-                    
+                    /*
+                    Modificar Vehículo: Se deberá mostrar la lista completa de Vehículos y seleccionar uno
+                    para poder modificar este elemento por completo. Deberá poder distinguir entre
+                    Automóviles, Motocicletas y Autobuses para poder modificar correctamente los
+                    Vehículos. Mostrando el Vehículo a Modificar tras seleccionar y los cambios realizados
+                    al finalizar.
+                    */
                     break;
                     
                 case 5:
@@ -339,6 +345,85 @@ public class Lab3P2_JuanFlores {
                     break;
                 
                 case 7:
+                    int Total=0;
+                    int totalApagar=275; 
+                    /*
+                    placa
+                    marca
+                    modelo
+                    tipo
+                    color
+                    año
+                    */
+                    Automovil autoB = new Automovil();
+                    Motocicleta motoB = new Motocicleta();
+                    Autobus busB  = new Autobus(); 
+                    
+                    vehiculos(vehiculos);
+                    
+                    System.out.println("Ingrese una posicion para generar la boleta de revision vehicular: ");
+                    int opcionBoleta = leer.nextInt();
+                  
+                    
+                    System.out.println("BOLETA REVISION VEHICULAR");
+                    
+                    for (int i = 0; i < vehiculos.size(); i++) {
+                        if (vehiculos.get(opcionBoleta) instanceof Automovil) {
+                            System.out.println("Automovil");
+                            System.out.println("Placa: "+autoB.getPlaca());
+                            System.out.println("Marca: "+autoB.getMarca());
+                            System.out.println("Modelo: "+autoB.getModelo());
+                            System.out.println("Tipo: "+autoB.getTipo());
+                            System.out.println("Color: "+autoB.getColor());
+                            System.out.println("Año: "+autoB.getAño());
+                            Total=totalApagar+250+1200;
+                            
+                            System.out.println("Total a pagar: " + Total);
+                            
+                        }
+  
+                    }
+                    
+                    for (int i = 0; i < vehiculos.size(); i++) {
+                        if (vehiculos.get(opcionBoleta) instanceof Motocicleta) {
+                           System.out.println("Motocicleta");
+                           
+                           System.out.println("Placa: "+motoB.getPlaca());
+                           System.out.println("Marca: "+motoB.getMarca());
+                           System.out.println("Modelo: "+motoB.getModelo());
+                           System.out.println("Tipo: "+motoB.getTipo());
+                           System.out.println("Color: "+motoB.getColor());
+                           System.out.println("Año: "+motoB.getAño());
+                            
+                           Total=totalApagar+250+200;
+                            
+                           System.out.println("Total a pagar: " + Total);  
+                            
+                        }
+  
+                    }
+                    
+                    for (int i = 0; i < vehiculos.size(); i++) {
+                        if (vehiculos.get(opcionBoleta) instanceof Autobus) {
+                          System.out.println("Automovil");
+                          System.out.println("Automovil");
+                          System.out.println("Placa: "+busB.getPlaca());
+                          System.out.println("Marca: "+busB.getMarca());
+                          System.out.println("Modelo: "+busB.getModelo());
+                          System.out.println("Tipo: "+busB.getTipo());
+                          System.out.println("Color: "+busB.getColor());
+                          System.out.println("Año: "+busB.getAño());
+                            
+                          Total=totalApagar+250+1000;
+                            
+                          System.out.println("Total a pagar: " + Total);   
+                            
+                        }
+  
+                    }
+                    
+                    
+                    
                     
                     
                     break;
