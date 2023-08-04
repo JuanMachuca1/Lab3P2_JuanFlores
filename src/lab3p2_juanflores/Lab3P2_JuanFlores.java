@@ -308,10 +308,38 @@ public class Lab3P2_JuanFlores {
                     break;
                     
                 case 6:
+                
+                    System.out.println("Automoviles: ");
+                    for (int i = 0; i < vehiculos.size(); i++) {
+                        if (vehiculos.get(i) instanceof Automovil) {
+                            System.out.println((Vehiculo)vehiculos.get(i));
+                            
+                        }
+  
+                    }
+                    System.out.println();
+                    System.out.println("Motocicletas: ");
+                    for (int i = 0; i < vehiculos.size(); i++) {
+                        if (vehiculos.get(i) instanceof Motocicleta) {
+                            System.out.println((Motocicleta)vehiculos.get(i));
+                            
+                        }
+  
+                    }
+                    System.out.println("");
+                    System.out.println("Autobuses: ");
+                    for (int i = 0; i < vehiculos.size(); i++) {
+                        if (vehiculos.get(i) instanceof Autobus) {
+                            System.out.println((Autobus)vehiculos.get(i));
+                            
+                        }
+  
+                    }
                     
                     break;
                 
                 case 7:
+                    
                     
                     break;
                     
@@ -338,7 +366,7 @@ public class Lab3P2_JuanFlores {
  public static void vehiculos(ArrayList vehiculos){
      
      for (int i = 0; i < vehiculos.size(); i++) {
-         System.out.println(vehiculos.indexOf(vehiculos)+" -"+ vehiculos.get(i)+ "\n");
+         System.out.println(i+" -"+ vehiculos.get(i)+ "\n");
          
      }
  }
