@@ -76,7 +76,7 @@ public class Lab3P2_JuanFlores {
                     System.out.println("Ingrese el tipo del auto: ");
                     tipoAuto=leer2.next();
                     
-                    color = JColorChooser.showDialog(null, "Color del dragon: ", Color.RED);
+                    color = JColorChooser.showDialog(null, "Color del auto: ", Color.RED);
                     
                     
                     System.out.println("Ingrese el año del vehiculo");
@@ -116,7 +116,7 @@ public class Lab3P2_JuanFlores {
 
                     
                 case 2:
-                {
+                
                    String placaM = null;
                     String marcaM;
                     String ModeloM;
@@ -155,7 +155,7 @@ public class Lab3P2_JuanFlores {
                     System.out.println("Ingrese el tipo del auto: ");
                     tipoAutoM=leer2.next();
                     
-                    colorM = JColorChooser.showDialog(null, "Color del dragon: ", Color.RED);
+                    colorM = JColorChooser.showDialog(null, "Color de la moto: ", Color.RED);
                     
                     
                     System.out.println("Ingrese el año del vehiculo");
@@ -194,13 +194,90 @@ public class Lab3P2_JuanFlores {
                     System.out.println("motocicleta agregado correctamente ");
                  
                     System.out.println(vehiculos);  
-                }
+                
                     break;
                     
                 case 3: 
-                {
+                
+                    String placaB = null;
+                    String marcaB;
+                    String ModeloB;
+                    String tipoAutoB;
+                    Color colorB;
+                    Date añoB;
+                    String añitoB;
+                    int capacidadpasajeros=0;
+                    int numEjes=0;
+                    int longitud=0;
                     
-                }
+                   
+                boolean placaValidaB=false;
+                
+                 while (!placaValidaB) {
+                    System.out.print("Ingresa la placa del automovil (3 letras seguidas de 4 dígitos): ");
+                    placaB=leer2.next().toUpperCase();
+                    
+                    if (placaB.length() == 7 && 
+                       (placaB.charAt(0)=='H') &&
+                       esLetra(placaB.charAt(1)) &&
+                       esLetra(placaB.charAt(2)) &&
+                       esNumero(placaB.charAt(3)) &&
+                       esNumero(placaB.charAt(4)) &&
+                       esNumero(placaB.charAt(5)) &&
+                       esNumero(placaB.charAt(6))) {
+                       placaValidaB=true;
+                       System.out.println("la placa es valida");
+                     }else {
+                     System.out.println("La placa no cumple con el formato especificado.");
+                     }
+                }    
+                    System.out.println("Ingrese la marca del automovil: ");
+                    marcaB=leer2.next();
+                    System.out.println("Ingrese el modelo del automovil: ");
+                    ModeloB=leer2.next();
+                    System.out.println("Ingrese el tipo del auto: ");
+                    tipoAutoB=leer2.next();
+                    
+                    colorB = JColorChooser.showDialog(null, "Color del bus: ", Color.RED);
+                    
+                    
+                    System.out.println("Ingrese el año del vehiculo");
+                    añitoB= leer2.next();
+                    añoB = fgh.parse(añitoB);
+                    
+                    System.out.println("Ingrese la capacidad de pasajeros del bus: ");
+                    capacidadpasajeros=leer.nextInt();
+                    
+                    while(capacidadpasajeros<0){
+                        System.out.println("Ingrese la cantidad de pasajeros del bus: ");
+                        capacidadpasajeros = leer.nextInt();
+                    }
+                    
+                    System.out.println("Ingrese el numero de ejes del bus:  ");
+                    numEjes = leer.nextInt();
+                     
+                    while(numEjes<0){
+                        System.out.println("Ingrese el numero de ejes del bus: ");
+                        numEjes = leer.nextInt();
+                    }
+                    
+                                                          
+                    System.out.println("Ingrese el la longitud del bus: ");
+                    longitud = leer.nextInt();
+                    
+                    while(longitud<0){
+                        System.out.println("Ingrese una cantidad coherente de puertas: ");
+                        longitud = leer.nextInt();
+                    }
+                    
+                    
+                    Autobus bus = new Autobus(capacidadpasajeros, numEjes, longitud, placaB, marcaB, ModeloB, tipoAutoB, colorB, añoB);
+                    vehiculos.add(bus);
+                    
+                    System.out.println("motocicleta agregado correctamente ");
+                 
+                    System.out.println(vehiculos);
+                
                     
                     break;
                     
