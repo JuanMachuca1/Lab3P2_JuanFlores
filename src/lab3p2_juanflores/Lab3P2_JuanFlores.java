@@ -287,6 +287,24 @@ public class Lab3P2_JuanFlores {
                     
                 case 5:
                     
+                    int opcionEliminar=0;
+                    
+                    
+                    vehiculos(vehiculos);
+                    
+                    System.out.println("Ingrese la posicion de un vehiculo para eliminar: ");
+                    opcionEliminar = leer.nextInt();
+                    
+                    while(opcionEliminar<0 && opcionEliminar>vehiculos.size()){
+                        System.out.println("Ingrese una posicion correcta de un vehiculo para eliminar: ");
+                        opcionEliminar = leer.nextInt();
+                    }
+                    
+                    vehiculos.remove(opcionEliminar);
+                    
+                    System.out.println("vehiculo eliminado exitosamente... ");
+                    
+                    
                     break;
                     
                 case 6:
@@ -316,4 +334,12 @@ public class Lab3P2_JuanFlores {
  public static boolean esNumero(char c) {
         return (c >= '0' && c <= '9');
     } 
+ 
+ public static void vehiculos(ArrayList vehiculos){
+     
+     for (int i = 0; i < vehiculos.size(); i++) {
+         System.out.println(vehiculos.indexOf(vehiculos)+" -"+ vehiculos.get(i)+ "\n");
+         
+     }
+ }
 }
