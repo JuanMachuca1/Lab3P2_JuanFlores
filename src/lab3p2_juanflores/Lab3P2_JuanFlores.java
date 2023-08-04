@@ -80,7 +80,7 @@ public class Lab3P2_JuanFlores {
                     
                     
                     System.out.println("Ingrese el año del vehiculo");
-                    añito= leer2.nextLine();
+                    añito= leer2.next();
                     año = fgh.parse(añito);
                     
                     System.out.println("Ingrese el combustible de automovil: ");//super, diesel , regular
@@ -117,11 +117,90 @@ public class Lab3P2_JuanFlores {
                     
                 case 2:
                 {
+                   String placaM = null;
+                    String marcaM;
+                    String ModeloM;
+                    String tipoAutoM;
+                    Color colorM;
+                    Date añoM;
+                    String añitoM;
+                    int velocidadMax=0;
+                    int pesoM=0;
+                    int consumoCombustible=0;
+                   
+                boolean placaValidaM=false;
+                
+                 while (!placaValidaM) {
+                    System.out.print("Ingresa la placa del automovil (3 letras seguidas de 4 dígitos): ");
+                    placaM=leer2.next().toUpperCase();
                     
+                    if (placaM.length() == 7 && 
+                       (placaM.charAt(0)=='B') &&
+                       esLetra(placaM.charAt(1)) &&
+                       esLetra(placaM.charAt(2)) &&
+                       esNumero(placaM.charAt(3)) &&
+                       esNumero(placaM.charAt(4)) &&
+                       esNumero(placaM.charAt(5)) &&
+                       esNumero(placaM.charAt(6))) {
+                       placaValidaM=true;
+                       System.out.println("la placa es valida");
+                     }else {
+                     System.out.println("La placa no cumple con el formato especificado.");
+                     }
+                }    
+                    System.out.println("Ingrese la marca del automovil: ");
+                    marcaM=leer2.next();
+                    System.out.println("Ingrese el modelo del automovil: ");
+                    ModeloM=leer2.next();
+                    System.out.println("Ingrese el tipo del auto: ");
+                    tipoAutoM=leer2.next();
+                    
+                    colorM = JColorChooser.showDialog(null, "Color del dragon: ", Color.RED);
+                    
+                    
+                    System.out.println("Ingrese el año del vehiculo");
+                    añitoM= leer2.next();
+                    añoM = fgh.parse(añitoM);
+                    
+                    System.out.println("Ingrese la velocidad maxima de la moto ");
+                    velocidadMax=leer.nextInt();
+                    
+                    while(velocidadMax<0){
+                        System.out.println("Ingrese la velocidad maxima de la moto ");
+                        velocidadMax = leer.nextInt();
+                    }
+                    
+                    System.out.println("Ingrese el peso de la moto :  ");
+                     pesoM = leer.nextInt();
+                     
+                    while(pesoM<0){
+                        System.out.println("Ingrese una cantidad coherente de puertas: ");
+                        pesoM = leer.nextInt();
+                    }
+                    
+                                                          
+                    System.out.println("Ingrese el consumo de combustible de la moto: ");
+                    consumoCombustible = leer.nextInt();
+                    
+                    while(consumoCombustible<0){
+                        System.out.println("Ingrese una cantidad coherente de puertas: ");
+                        consumoCombustible = leer.nextInt();
+                    }
+                    
+                    
+                    Motocicleta moto = new Motocicleta(velocidadMax, pesoM, consumoCombustible, placaM, marcaM, ModeloM, tipoAutoM, colorM, añoM);
+                    vehiculos.add(moto);
+                    
+                    System.out.println("motocicleta agregado correctamente ");
+                 
+                    System.out.println(vehiculos);  
                 }
                     break;
                     
                 case 3: 
+                {
+                    
+                }
                     
                     break;
                     
