@@ -111,7 +111,7 @@ public class Lab3P2_JuanFlores {
                     
                     System.out.println("automovil agregado correctamente ");
                  
-                    System.out.println(vehiculos);
+                   
                     break;
 
                     
@@ -193,8 +193,7 @@ public class Lab3P2_JuanFlores {
                     
                     System.out.println("motocicleta agregado correctamente ");
                  
-                    System.out.println(vehiculos);  
-                
+                   
                     break;
                     
                 case 3: 
@@ -276,8 +275,7 @@ public class Lab3P2_JuanFlores {
                     
                     System.out.println("motocicleta agregado correctamente ");
                  
-                    System.out.println(vehiculos);
-                
+                    
                     
                     break;
                     
@@ -289,9 +287,318 @@ public class Lab3P2_JuanFlores {
                     Vehículos. Mostrando el Vehículo a Modificar tras seleccionar y los cambios realizados
                     al finalizar.
                     */
+                    if(vehiculos.isEmpty()){
+                        System.out.println("No hay nada Mi bro ingrese vehiculos");
+                    }else
+                    {
+                    int opcionMod=0;
+                    
+                    vehiculos(vehiculos);
+                    
+                    System.out.println("Ingrese la posicion del Vehiculo a modificar: ");
+                    opcionMod=leer.nextInt();
+                    
+                     for (int i = 0; i < vehiculos.size(); i++) {
+                        if (vehiculos.get(opcionMod) instanceof Automovil) {
+                          
+                            {
+                            String placa1 = null;
+                            String marca1;
+                            String Modelo1;
+                            String tipoAuto1;
+                            Color color1;
+                            Date año1;
+                            String añito1;
+                            String Combustible1;
+                            int puertas1=0;
+                            String Transmision1;
+                            int asientos1=0;
+
+                        boolean placaValida1=false;
+
+                         while (!placaValida1) {
+                            System.out.print("Ingresa la placa del automovil (3 letras seguidas de 4 dígitos): ");
+                            placa1=leer2.next().toUpperCase();
+
+                            if (placa1.length() == 7 && 
+                               (placa1.charAt(0)=='H') &&
+                               esLetra(placa1.charAt(1)) &&
+                               esLetra(placa1.charAt(2)) &&
+                               esNumero(placa1.charAt(3)) &&
+                               esNumero(placa1.charAt(4)) &&
+                               esNumero(placa1.charAt(5)) &&
+                               esNumero(placa1.charAt(6))) {
+                               placaValida1=true;
+                               System.out.println("la placa es valida");
+                             }else {
+                             System.out.println("La placa no cumple con el formato especificado.");
+                             }
+                        }    
+                         
+                            ((Automovil)vehiculos.get(opcionMod)).setPlaca(placa1); 
+                            
+                            System.out.println("Ingrese la marca del automovil: ");
+                            marca1=leer2.next();
+                            ((Automovil)vehiculos.get(opcionMod)).setMarca(marca1); 
+                            System.out.println("Ingrese el modelo del automovil: ");
+                            Modelo1=leer2.next();
+                            ((Automovil)vehiculos.get(opcionMod)).setModelo(Modelo1); 
+                            System.out.println("Ingrese el tipo del auto: ");
+                            tipoAuto1=leer2.next();
+                            ((Automovil)vehiculos.get(opcionMod)).setTipo(tipoAuto1); 
+
+                            color1 = JColorChooser.showDialog(null, "Color del auto: ", Color.RED);
+
+                            ((Automovil)vehiculos.get(opcionMod)).setColor(color1); 
+                            
+                            System.out.println("Ingrese el año del vehiculo");
+                            añito1= leer2.next();
+                            
+                            año1 = fgh.parse(añito1);
+                            ((Automovil)vehiculos.get(opcionMod)).setAño(año1);     
+                            
+                            System.out.println("Ingrese el combustible de automovil: ");//super, diesel , regular
+                            Combustible1=leer2.next();
+                            ((Automovil)vehiculos.get(opcionMod)).setTipoCombustible(Combustible1); 
+
+                            System.out.println("Ingrese la cantidad de puertas: ");
+                             puertas1 = leer.nextInt();
+                            
+
+                            while(puertas1<0 || puertas1==3 || puertas1>4){
+                                System.out.println("Ingrese una cantidad coherente de puertas: ");
+                                puertas1 = leer.nextInt();
+                            }
+                             ((Automovil)vehiculos.get(opcionMod)).setPuertas(puertas1);     
+                            
+                            System.out.println("Ingrese la transmision del automovil: [automatica o manual] ");
+                            Transmision1= leer2.next();
+                             ((Automovil)vehiculos.get(opcionMod)).setTipoTransmision(Transmision1); 
+                            
+                            System.out.println("Ingrese la cantidad de asientos: ");
+                            asientos1 = leer.nextInt();
+                            
+
+                            while(asientos1<0){
+                                System.out.println("Ingrese la cantidad de asientos correcta: ");
+                                asientos1 = leer.nextInt();
+                            }
+                            ((Automovil)vehiculos.get(opcionMod)).setAsientos(asientos1); 
+                           
+
+                            
+
+                            System.out.println("automovil modificado correctamente ");
+
+                            
+
+                            }
+                            
+                        }
+                         
+                    }
+                    
+                    for (int i = 0; i < vehiculos.size(); i++) {
+                        if (vehiculos.get(opcionMod) instanceof Motocicleta) {
+                            {
+                            String placa1 = null;
+                            String marca1;
+                            String Modelo1;
+                            String tipoAuto1;
+                            Color color1;
+                            Date año1;
+                            String añito1;
+                            int velocidadMaxM=0;//km/h
+                            int pesom=0;//kg
+                            int ConsumoCombustible=0;//L
+
+                        boolean placaValida1=false;
+
+                         while (!placaValida1) {
+                            System.out.print("Ingresa la placa del automovil (3 letras seguidas de 4 dígitos): ");
+                            placa1=leer2.next().toUpperCase();
+
+                            if (placa1.length() == 7 && 
+                               (placa1.charAt(0)=='H') &&
+                               esLetra(placa1.charAt(1)) &&
+                               esLetra(placa1.charAt(2)) &&
+                               esNumero(placa1.charAt(3)) &&
+                               esNumero(placa1.charAt(4)) &&
+                               esNumero(placa1.charAt(5)) &&
+                               esNumero(placa1.charAt(6))) {
+                               placaValida1=true;
+                               System.out.println("la placa es valida");
+                             }else {
+                             System.out.println("La placa no cumple con el formato especificado.");
+                             }
+                        }    
+                         
+                            ((Motocicleta)vehiculos.get(opcionMod)).setPlaca(placa1); 
+                            
+                            System.out.println("Ingrese la marca del automovil: ");
+                            marca1=leer2.next();
+                            ((Motocicleta)vehiculos.get(opcionMod)).setMarca(marca1); 
+                            System.out.println("Ingrese el modelo del automovil: ");
+                            Modelo1=leer2.next();
+                            ((Motocicleta)vehiculos.get(opcionMod)).setModelo(Modelo1); 
+                            System.out.println("Ingrese el tipo del auto: ");
+                            tipoAuto1=leer2.next();
+                            ((Motocicleta)vehiculos.get(opcionMod)).setTipo(tipoAuto1); 
+
+                            color1 = JColorChooser.showDialog(null, "Color del auto: ", Color.RED);
+
+                            ((Motocicleta)vehiculos.get(opcionMod)).setColor(color1); 
+                            
+                            System.out.println("Ingrese el año del vehiculo");
+                            añito1= leer2.next();
+                            
+                            año1 = fgh.parse(añito1);
+                            ((Motocicleta)vehiculos.get(opcionMod)).setAño(año1);     
+                            
+                            
+
+                            System.out.println("Ingrese la velocidad maxima de la moto: ");
+                             velocidadMaxM = leer.nextInt();
+                            
+
+                            while(velocidadMaxM<0 ){
+                                System.out.println("Ingrese una cantidad coherente de puertas: ");
+                                velocidadMaxM = leer.nextInt();
+                            }
+                             ((Motocicleta)vehiculos.get(opcionMod)).setVelocidadMax(velocidadMaxM);     
+                            
+                            System.out.println("Ingrese el peso de la moto: ");
+                            pesom = leer.nextInt();
+                            while(pesom<0){
+                                System.out.println("Ingrese la cantidad de asientos correcta: ");
+                                pesom = leer.nextInt();
+                            }
+                            ((Motocicleta)vehiculos.get(opcionMod)).setPeso(pesom); 
+                            
+                            System.out.println("Ingrese el consumo de combustible: ");
+                            ConsumoCombustible = leer.nextInt();
+                            
+
+                            while(ConsumoCombustible<0){
+                                System.out.println("Ingrese la cantidad de asientos correcta: ");
+                                ConsumoCombustible = leer.nextInt();
+                            }
+                            ((Motocicleta)vehiculos.get(opcionMod)).setConsumoCombustible(ConsumoCombustible);
+                           
+
+                            System.out.println("moto modificada correctamente ");
+                            }
+                            
+                        }
+  
+                    }
+                    
+                    for (int i = 0; i < vehiculos.size(); i++) {
+                        if (vehiculos.get(opcionMod) instanceof Autobus) {
+                            {
+                            String placa1 = null;
+                            String marca1;
+                            String Modelo1;
+                            String tipoAuto1;
+                            Color color1;
+                            Date año1;
+                            String añito1;
+                            int capacidadPasajeros=0;
+                            int numEjesB=0;
+                            int longitudB=0;
+                            
+
+                        boolean placaValida1=false;
+
+                         while (!placaValida1) {
+                            System.out.print("Ingresa la placa del automovil (3 letras seguidas de 4 dígitos): ");
+                            placa1=leer2.next().toUpperCase();
+
+                            if (placa1.length() == 7 && 
+                               (placa1.charAt(0)=='H') &&
+                               esLetra(placa1.charAt(1)) &&
+                               esLetra(placa1.charAt(2)) &&
+                               esNumero(placa1.charAt(3)) &&
+                               esNumero(placa1.charAt(4)) &&
+                               esNumero(placa1.charAt(5)) &&
+                               esNumero(placa1.charAt(6))) {
+                               placaValida1=true;
+                               System.out.println("la placa es valida");
+                             }else {
+                             System.out.println("La placa no cumple con el formato especificado.");
+                             }
+                        }    
+                         
+                            ((Autobus)vehiculos.get(opcionMod)).setPlaca(placa1); 
+                            
+                            System.out.println("Ingrese la marca del automovil: ");
+                            marca1=leer2.next();
+                            ((Autobus)vehiculos.get(opcionMod)).setMarca(marca1); 
+                            System.out.println("Ingrese el modelo del automovil: ");
+                            Modelo1=leer2.next();
+                            ((Autobus)vehiculos.get(opcionMod)).setModelo(Modelo1); 
+                            System.out.println("Ingrese el tipo del auto: ");
+                            tipoAuto1=leer2.next();
+                            ((Autobus)vehiculos.get(opcionMod)).setTipo(tipoAuto1); 
+
+                            color1 = JColorChooser.showDialog(null, "Color del auto: ", Color.RED);
+
+                            ((Autobus)vehiculos.get(opcionMod)).setColor(color1); 
+                            
+                            System.out.println("Ingrese el año del vehiculo");
+                            añito1= leer2.next();
+                            
+                            año1 = fgh.parse(añito1);
+                            ((Autobus)vehiculos.get(opcionMod)).setAño(año1);     
+                            
+                            
+
+                            System.out.println("Ingrese la capacidad de pasajeros: ");
+                            capacidadPasajeros = leer.nextInt();
+                            
+
+                            while(capacidadPasajeros<0 ){
+                                System.out.println("Ingrese una cantidad coherente de puertas: ");
+                                capacidadPasajeros = leer.nextInt();
+                            }
+                             ((Autobus)vehiculos.get(opcionMod)).setCapacidadPasajeros(capacidadPasajeros);     
+                            
+                            System.out.println("Ingrese los numeros de ejes: ");
+                            numEjesB = leer.nextInt();
+                            
+                            while(numEjesB<0){
+                                System.out.println("Ingrese la cantidad de asientos correcta: ");
+                                numEjesB = leer.nextInt();
+                            }
+                            ((Autobus)vehiculos.get(opcionMod)).setNumeroEjes(numEjesB); 
+                            
+                            System.out.println("Ingrese la longitud del bus: ");
+                            longitudB = leer.nextInt();
+                            
+
+                            while(longitudB<0){
+                                System.out.println("Ingrese la cantidad de asientos correcta: ");
+                                longitudB = leer.nextInt();
+                            }
+                            ((Autobus)vehiculos.get(opcionMod)).setLongitud(longitudB);
+                           
+
+                            System.out.println("moto modificada correctamente ");
+                              
+                            }
+                            
+                            }
+                        }
+                    }
+                    
                     break;
                     
                 case 5:
+                    
+                    if(vehiculos.isEmpty()){
+                        System.out.println("No hay nada mi bro ingresa vehiculos");
+                    }else{
+                        
                     
                     int opcionEliminar=0;
                     
@@ -310,11 +617,15 @@ public class Lab3P2_JuanFlores {
                     
                     System.out.println("vehiculo eliminado exitosamente... ");
                     
-                    
+                 } 
                     break;
                     
                 case 6:
-                
+                    if(vehiculos.isEmpty()){
+                        System.out.println("no hay nada mi bro ingresa vehiculos");
+                    }else{
+                        
+                    
                     System.out.println("Automoviles: ");
                     for (int i = 0; i < vehiculos.size(); i++) {
                         if (vehiculos.get(i) instanceof Automovil) {
@@ -341,10 +652,16 @@ public class Lab3P2_JuanFlores {
                         }
   
                     }
-                    
+                }
                     break;
                 
                 case 7:
+                    
+                    if(vehiculos.isEmpty()){
+                        System.out.println("no hay nada mi bro ingresa vehiculos");
+                    }else{
+                        
+                    
                     int Total=0;
                     int totalApagar=275; 
                     /*
@@ -355,10 +672,7 @@ public class Lab3P2_JuanFlores {
                     color
                     año
                     */
-                    Automovil autoB = new Automovil();
-                    Motocicleta motoB = new Motocicleta();
-                    Autobus busB  = new Autobus(); 
-                    
+                                        
                     vehiculos(vehiculos);
                     
                     System.out.println("Ingrese una posicion para generar la boleta de revision vehicular: ");
@@ -370,12 +684,12 @@ public class Lab3P2_JuanFlores {
                     for (int i = 0; i < vehiculos.size(); i++) {
                         if (vehiculos.get(opcionBoleta) instanceof Automovil) {
                             System.out.println("Automovil");
-                            System.out.println("Placa: "+autoB.getPlaca());
-                            System.out.println("Marca: "+autoB.getMarca());
-                            System.out.println("Modelo: "+autoB.getModelo());
-                            System.out.println("Tipo: "+autoB.getTipo());
-                            System.out.println("Color: "+autoB.getColor());
-                            System.out.println("Año: "+autoB.getAño());
+                            System.out.println("Placa: "+ ((Automovil)vehiculos.get(opcionBoleta)).getPlaca());
+                            System.out.println("Marca: "+((Automovil)vehiculos.get(opcionBoleta)).getMarca());
+                            System.out.println("Modelo: "+ ((Automovil)vehiculos.get(opcionBoleta)).getModelo());
+                            System.out.println("Tipo: "+((Automovil)vehiculos.get(opcionBoleta)).getTipo());
+                            System.out.println("Color: "+((Automovil)vehiculos.get(opcionBoleta)).getColor());
+                            System.out.println("Año: "+((Automovil)vehiculos.get(opcionBoleta)).getMarca());
                             Total=totalApagar+250+1200;
                             
                             System.out.println("Total a pagar: " + Total);
@@ -388,12 +702,13 @@ public class Lab3P2_JuanFlores {
                         if (vehiculos.get(opcionBoleta) instanceof Motocicleta) {
                            System.out.println("Motocicleta");
                            
-                           System.out.println("Placa: "+motoB.getPlaca());
-                           System.out.println("Marca: "+motoB.getMarca());
-                           System.out.println("Modelo: "+motoB.getModelo());
-                           System.out.println("Tipo: "+motoB.getTipo());
-                           System.out.println("Color: "+motoB.getColor());
-                           System.out.println("Año: "+motoB.getAño());
+                           
+                           System.out.println("Placa: "+ ((Motocicleta)vehiculos.get(opcionBoleta)).getPlaca());
+                           System.out.println("Marca: "+((Motocicleta)vehiculos.get(opcionBoleta)).getMarca());
+                           System.out.println("Modelo: "+ ((Motocicleta)vehiculos.get(opcionBoleta)).getModelo());
+                           System.out.println("Tipo: "+((Motocicleta)vehiculos.get(opcionBoleta)).getTipo());
+                           System.out.println("Color: "+((Motocicleta)vehiculos.get(opcionBoleta)).getColor());
+                           System.out.println("Año: "+((Motocicleta)vehiculos.get(opcionBoleta)).getMarca());
                             
                            Total=totalApagar+250+200;
                             
@@ -402,17 +717,18 @@ public class Lab3P2_JuanFlores {
                         }
   
                     }
+                
                     
                     for (int i = 0; i < vehiculos.size(); i++) {
                         if (vehiculos.get(opcionBoleta) instanceof Autobus) {
-                          System.out.println("Automovil");
-                          System.out.println("Automovil");
-                          System.out.println("Placa: "+busB.getPlaca());
-                          System.out.println("Marca: "+busB.getMarca());
-                          System.out.println("Modelo: "+busB.getModelo());
-                          System.out.println("Tipo: "+busB.getTipo());
-                          System.out.println("Color: "+busB.getColor());
-                          System.out.println("Año: "+busB.getAño());
+                            System.out.println("Autobus");
+                            System.out.println("Placa: "+ ((Autobus)vehiculos.get(opcionBoleta)).getPlaca());
+                            System.out.println("Marca: "+((Autobus)vehiculos.get(opcionBoleta)).getMarca());
+                            System.out.println("Modelo: "+ ((Autobus)vehiculos.get(opcionBoleta)).getModelo());
+                            System.out.println("Tipo: "+((Autobus)vehiculos.get(opcionBoleta)).getTipo());
+                            System.out.println("Color: "+((Autobus)vehiculos.get(opcionBoleta)).getColor());
+                            System.out.println("Año: "+((Autobus)vehiculos.get(opcionBoleta)).getMarca());
+                          
                             
                           Total=totalApagar+250+1000;
                             
@@ -424,7 +740,7 @@ public class Lab3P2_JuanFlores {
                     
                     
                     
-                    
+               }    
                     
                     break;
                     
